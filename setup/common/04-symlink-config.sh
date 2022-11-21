@@ -17,6 +17,22 @@ else
     echo "✨ Symbolic link created"
 fi
 
+# Symlink to .zsh
+ZSH=~/.zsh
+if [ -L ${ZSH} ] ; then
+    echo "✅ Symlink already exists (.zsh)"
+elif [ -e ${ZSH} ] ; then
+    echo "💾 Backup existing .zsh"
+    mv ${ZSH} ${ZSH}.bak
+    echo "🔗 Creating symbolic link to .zsh"
+    ln -s ${PWD}/.zsh ${ZSH}
+    echo "✨ Symbolic link created"
+else
+    echo "🔗 Creating symbolic link to .zsh"
+    ln -s ${PWD}/.zsh ${ZSH}
+    echo "✨ Symbolic link created"
+fi
+
 # Symlink to .gitconfig
 GIT_CONFIG=~/.gitconfig
 
