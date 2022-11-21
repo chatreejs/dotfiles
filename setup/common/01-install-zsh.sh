@@ -22,7 +22,7 @@ then
     install
     echo "✨ Zsh installed"
 else
-    echo "✅ Zsh is installed"
+    echo "✅ Zsh is already installed (Skipping)"
 fi
 
 # Use Zsh as default shell
@@ -31,5 +31,5 @@ if [[ $SHELL != $(which zsh) ]]; then
     chsh -s $(which zsh)
     echo "✨ Default shell changed to Zsh"
 else
-    echo "✅ Default shell is already Zsh"
+    echo "✅ Default shell is already Zsh (Skipping)"
 fi

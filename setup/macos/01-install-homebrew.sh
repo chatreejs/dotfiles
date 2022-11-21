@@ -6,5 +6,5 @@ then
   yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   echo "✨ Homebrew installed"
 else
-  echo "✅ Homebrew is already installed"
+  echo "✅ Homebrew is already installed (Skipping)"
 fi

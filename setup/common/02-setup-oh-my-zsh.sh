@@ -37,13 +37,13 @@ install_plugins () {
             echo "✨ $plugin installed"
         done
     else
-        echo "✅ All plugins are installed"
+        echo "✅ All plugins already installed (Skipping)"
     fi
 }
 
 # Install Oh My Zsh
 if [ -d ~/.oh-my-zsh ]; then
-    echo "✅ Oh My Zsh already installed"
+    echo "✅ Oh My Zsh is already installed (Skipping)"
 else
     echo "🚀 Installing Oh My Zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
