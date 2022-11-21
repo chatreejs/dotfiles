@@ -33,3 +33,30 @@ else
     ln -s ${PWD}/.gitconfig ${GIT_CONFIG}
     echo "✨ Symbolic link created"
 fi
+
+# Symlink to .config
+DOT_CONFIG=~/.config
+
+if [ -d ${DOT_CONFIG} ] ; then
+    echo "✅ Config directory already exists"
+else
+    echo "🗂️ Create .config directory"
+    mkdir ${DOT_CONFIG}
+fi
+
+for config in $(ls -d ${PWD}/.config/*); do
+    config_name=$(basename ${config})
+    if [ -L ${DOT_CONFIG}/${config_name} ] ; then
+        echo "✅ Symlink already exists (.config/${config_name})"
+    elif [ -e ${DOT_CONFIG}/${config_name} ] ; then
+        echo "💾 Backup existing .config/${config_name}"
+        mv ${DOT_CONFIG}/${config_name} ${DOT_CONFIG}/${config_name}.bak
+        echo "🔗 Creating symbolic link to .config/${config_name}"
+        ln -s ${PWD}/.config/${config_name} ${DOT_CONFIG}/${config_name}
+        echo "✨ Symbolic link created"
+    else
+        echo "🔗 Creating symbolic link to .config/${config_name}"
+        ln -s ${PWD}/.config/${config_name} ${DOT_CONFIG}/${config_name}
+        echo "✨ Symbolic link created"
+    fi
+done

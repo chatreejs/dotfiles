@@ -3,29 +3,31 @@
 # Install Zsh
 DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
 
-if [[ $DISTRO == "macos" ]]; then
-    if ! command -v zsh &> /dev/null
+install () {
+    if [[ $DISTRO == "macos" ]];
     then
-        echo "🐚 Installing Zsh..."
         brew install zsh
-        echo "✨ Zsh installed"
-    else
-        echo "✅ Zsh is installed"
-    fi
-elif [[ $DISTRO == "ubuntu" ]]; then
-    if ! command -v zsh &> /dev/null
+    elif [[ $DISTRO == "ubuntu" || $DISTRO == "debian" ]];
     then
-        echo "🐚 Installing Zsh..."
-        sudo apt install zsh
-        echo "✨ Zsh installed"
-    else
-        echo "✅ Zsh is installed"
+        apt install zsh
+    elif [[ $DISTRO == "arch" ]];
+    then
+        pacman -S zsh
     fi
+}
+
+if ! command -v zsh &> /dev/null
+then
+    echo "🐚 Installing Zsh"
+    install
+    echo "✨ Zsh installed"
+else
+    echo "✅ Zsh is installed"
 fi
 
 # Use Zsh as default shell
 if [[ $SHELL != "/bin/zsh" ]]; then
-    echo "🐚 Changing default shell to Zsh..."
+    echo "🐚 Changing default shell to Zsh"
     chsh -s $(which zsh)
     echo "✨ Default shell changed to Zsh"
 else

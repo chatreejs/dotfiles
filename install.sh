@@ -34,7 +34,6 @@ source ${PWD}/setup/common/03-install-starship.sh
 # Symlink Config
 source ${PWD}/setup/common/04-symlink-config.sh
 
-# Setup The Ultimate Vim Config
-source ${PWD}/setup/common/05-setup-ultimate-vim-config.sh
+zsh ~/.zshrc
 
-printf "🎉All done! Please restart your terminal to apply changes.\n"
+printf "🎉 All Done!\n"

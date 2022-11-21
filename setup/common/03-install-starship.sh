@@ -5,7 +5,7 @@ OS=$(uname -s)
 if [[ $OS == "linux" ]]; then
     if ! command -v starship &> /dev/null
     then
-        echo "🚀 Installing Starship..."
+        echo "🚀 Installing Starship"
         curl -fsSL https://starship.rs/install.sh | sh
         echo "✨ Starship installed"
     else
