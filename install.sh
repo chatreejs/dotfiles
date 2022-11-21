@@ -5,6 +5,7 @@ echo "👾 Welcome to the dotfiles installer!"
 
 # Check Distro
 DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
+OS=$(uname -s)
 echo "💻 You are Running on $DISTRO"
 
 # Install Homebrew
@@ -30,6 +31,11 @@ source ${PWD}/setup/common/02-setup-oh-my-zsh.sh
 
 # Install Starship
 source ${PWD}/setup/common/03-install-starship.sh
+
+# Install essential packages Linux
+if [[ $OS == "Linux" ]]; then
+    source ${PWD}/setup/linux/01-install-essential.sh
+fi
 
 # Symlink Config
 source ${PWD}/setup/common/04-symlink-config.sh

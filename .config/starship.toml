@@ -7,6 +7,9 @@ format = '[$env_value](white)'
 variable = "STARSHIP_DISTRO"
 disabled = false
 
+[container]
+disabled = true
+
 [username]
 style_user = "white"
 style_root = "white"
