@@ -2,7 +2,7 @@
 
 OS=$(uname -s)
 
-if [[ $OS == "linux" ]]; then
+if [[ $OS == "Linux" ]]; then
     if ! command -v starship &> /dev/null
     then
         echo "🚀 Installing Starship"

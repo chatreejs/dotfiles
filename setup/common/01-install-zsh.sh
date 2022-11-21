@@ -9,10 +9,10 @@ install () {
         brew install zsh
     elif [[ $DISTRO == "ubuntu" || $DISTRO == "debian" ]];
     then
-        apt install zsh
+        sudo apt install zsh -y
     elif [[ $DISTRO == "arch" ]];
     then
-        pacman -S zsh
+        sudo pacman -S zsh
     fi
 }
 
