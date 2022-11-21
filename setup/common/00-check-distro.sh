@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # find out which distribution we are running on
-LFILE="/etc/*-release"
+LFILE="/etc/os-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
 if [[ -f $LFILE ]]; then
   _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
