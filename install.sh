@@ -8,6 +8,11 @@ DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
 OS=$(uname -s)
 echo "💻 You are Running on $DISTRO"
 
+# Install essential packages Linux
+if [[ $OS == "Linux" ]]; then
+    source ${PWD}/setup/linux/01-install-essential.sh
+fi
+
 # Install Homebrew
 if [[ $DISTRO == "macos" ]]; then
   source ${PWD}/setup/macos/01-install-homebrew.sh
@@ -32,13 +37,11 @@ source ${PWD}/setup/common/02-setup-oh-my-zsh.sh
 # Install Starship
 source ${PWD}/setup/common/03-install-starship.sh
 
-# Install essential packages Linux
-if [[ $OS == "Linux" ]]; then
-    source ${PWD}/setup/linux/01-install-essential.sh
-fi
-
 # Symlink Config
 source ${PWD}/setup/common/04-symlink-config.sh
+
+# Seyup asdf
+source ${PWD}/setup/common/05-setup-asdf.sh
 
 printf "🎉 All Done! \
 \nPlease restart your terminal to apply the changes.\n"
