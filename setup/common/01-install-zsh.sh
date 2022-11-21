@@ -26,7 +26,7 @@ else
 fi
 
 # Use Zsh as default shell
-if [[ $SHELL != "/bin/zsh" ]]; then
+if [[ $SHELL != $(which zsh) ]]; then
     echo "🐚 Changing default shell to Zsh"
     chsh -s $(which zsh)
     echo "✨ Default shell changed to Zsh"
