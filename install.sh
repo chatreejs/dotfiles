@@ -34,6 +34,5 @@ source ${PWD}/setup/common/03-install-starship.sh
 # Symlink Config
 source ${PWD}/setup/common/04-symlink-config.sh
 
-zsh ~/.zshrc
-
-printf "🎉 All Done!\n"
+printf "🎉 All Done! \
+\nPlease restart your terminal to apply the changes.\n"
