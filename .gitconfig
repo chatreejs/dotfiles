@@ -1,3 +1,10 @@
 [user]
-	name = chatreejs
-	email = chanon29060@live.com
+	name = CHANON TREEMETH
+	email = chanon.t@cdg.co.th
+	signingKey = ""
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false

@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 ENV DOCKERIZED true
-ENV USER chatree
+ENV USER chatreejs
 ENV TIMEZONE "Asia/Bangkok"
 ARG DEBIAN_FRONTEND=noninteractive
 

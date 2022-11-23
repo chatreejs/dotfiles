@@ -2,9 +2,9 @@
 
 if ! command -v starship &> /dev/null
 then
-    echo "🚀 Installing Starship"
+    echo "🚀  Installing Starship"
     curl -fsSL https://starship.rs/install.sh | sh -s -- -y
-    echo "✨ Starship installed"
+    echo "✨  Starship installed"
 else
-    echo "✅ Starship is already installed (Skipping)"
+    echo "✅  Starship is already installed (Skipping)"
 fi

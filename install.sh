@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# Welcom message
-echo "👾 Welcome to the dotfiles installer!"
-
 # Check Distro
 DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
 OS=$(uname -s)
-echo "💻 You are Running on $DISTRO"
+
+# Welcom message
+echo "😎  dotfiles installer v1.0.0 on $DISTRO"
 
 # Install essential packages Linux
 if [[ $OS == "Linux" ]]; then
@@ -37,11 +36,13 @@ source ${PWD}/setup/common/02-setup-oh-my-zsh.sh
 # Install Starship
 source ${PWD}/setup/common/03-install-starship.sh
 
+# Setup asdf
+source ${PWD}/setup/common/04-setup-asdf.sh
+
+# Setup LunarVim
+source ${PWD}/setup/common/05-setup-lunarvim.sh
+
 # Symlink Config
-source ${PWD}/setup/common/04-symlink-config.sh
+source ${PWD}/setup/common/06-symlink-config.sh
 
-# Seyup asdf
-source ${PWD}/setup/common/05-setup-asdf.sh
-
-printf "🎉 All Done! \
-\nPlease restart your terminal to apply the changes.\n"
+printf "🎉  Done! all configuration is now installed.\n"
