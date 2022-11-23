@@ -1,52 +1,56 @@
-add_newline = true
+add_newline = false
 
 format = """$env_var $all"""
+
+[character]
+success_symbol = "[➜](bold #50fa7b) "
+error_symbol = "[➜](bold #ff5555) "
+
+[cmd_duration]
+style = "bold #f1fa8c"
+
+[container]
+disabled = true
+
+[directory]
+style = "bold #50fa7b"
+truncation_length = 3
+home_symbol = " ~"
+read_only_style = "#ff5555"
+read_only = "  "
+format = "at [$path]($style)[$read_only]($read_only_style) "
+
+[dotnet]
+format = "via [$symbol($version )(🎯 $tfm )]($style)"
+symbol = " "
 
 [env_var.STARSHIP_DISTRO]
 format = '[$env_value](white)'
 variable = "STARSHIP_DISTRO"
 disabled = false
 
-[container]
-disabled = true
-
-[username]
-style_user = "white"
-style_root = "white"
-format = "[$user]($style) "
-disabled = false
-show_always = true
-
-[directory]
-truncation_length = 1
-truncation_symbol = "…/"
-home_symbol = " ~"
-read_only_style = "197"
-read_only = "  "
-format = "at [$path]($style)[$read_only]($read_only_style) "
-
 [git_branch]
-symbol = " "
-format = "via [$symbol$branch]($style) "
-# truncation_length = 4
-truncation_symbol = "…/"
-style = "bold green"
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+style = "bold #ff79c6"
+symbol = " "
 
 [git_status]
-format = '[\($all_status$ahead_behind\)]($style) '
-style = "bold green"
-conflicted = "🏳"
-up_to_date = " "
-untracked = " "
+style = "bold #ff5555"
+format = '([\[$all_status$ahead_behind\]]($style) )'
 ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
-stashed = " "
-modified = " "
-staged = '[++\($count\)](green)'
-renamed = "襁 "
-deleted = " "
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
+[hostname]
+style = "bold #bd93f9"
+disabled = false
 
 [kubernetes]
 format = 'via [ﴱ $context\($namespace\)](bold purple) '
 disabled = false
+
+[username]
+format = "[$user]($style) "
+style_user = "bold #8be9fd"
+disabled = false
+show_always = true
