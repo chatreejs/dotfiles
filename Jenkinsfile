@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -f docker/Dockerfile . -t chatreejs/dotfiles:ubuntu'
+        sh 'docker build -f Dockerfile . -t chatreejs/dotfiles:ubuntu'
       }
     }
 
