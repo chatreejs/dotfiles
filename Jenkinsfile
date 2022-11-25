@@ -2,7 +2,6 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_TAG = getDockerTag()
     IMAGE_URL_WITH_TAG = "chatreejs/dotfiles:ubuntu"
   }
 
@@ -38,9 +37,4 @@ pipeline {
     }
   }
 
-}
-
-def getDockerTag() {
-  def tag = sh script: "git describe --tags `git rev-list --tags --max-count=1`", returnStdout: true
-  return tag.trim()
 }
