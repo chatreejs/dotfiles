@@ -1,5 +1,5 @@
 [user]
-	name = chatreejs
+	name = Chatree.js
 	email = 36321701+chatreejs@users.noreply.github.com
 
 [includeIf "gitdir:~/Documents/Projects.GISC/"]
