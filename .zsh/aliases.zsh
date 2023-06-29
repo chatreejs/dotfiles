@@ -25,12 +25,13 @@ function kc() {
 
 # Alias command
 alias ls="exa --icons --group-directories-first"
-alias ll="exa --icons --group-directories-first -l"
+alias ll="exa --icons --group-directories-first -la"
 alias g="goto"
 alias grep='grep --color'
+alias reload='source ~/.zshrc'
 
 # Custom directory aliases
-alias cdgisc="cd ~/Documents/Projects.GISC"
+alias cdchatree="cd ~/Documents/Projects/chatreejs"
 
 source <(kubectl completion zsh)
 source <(ng completion script)
