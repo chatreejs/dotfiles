@@ -30,8 +30,5 @@ alias g="goto"
 alias grep='grep --color'
 alias reload='source ~/.zshrc'
 
-# Custom directory aliases
-alias cdchatree="cd ~/Documents/Projects/chatreejs"
-
 source <(kubectl completion zsh)
 source <(ng completion script)
