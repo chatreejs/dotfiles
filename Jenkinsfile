@@ -12,18 +12,18 @@ pipeline {
       }
     }
 
-    stage('Clear dangling image') {
-      steps {
-        sh 'docker container prune -f && docker image prune -f'
-      }
-    }
-
     stage('Push to registry') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'docker-hub-credential', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh 'docker login -u $USERNAME -p $PASSWORD'
           sh 'docker push $IMAGE_URL_WITH_TAG'
         }
+      }
+    }
+
+    stage('Clear image') {
+      steps {
+        sh 'docker rmi $IMAGE_URL_WITH_TAG'
       }
     }
   }
