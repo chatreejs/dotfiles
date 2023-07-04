@@ -15,7 +15,7 @@ disabled = true
 [directory]
 style = "bold #50fa7b"
 truncation_length = 3
-home_symbol = " ~"
+home_symbol = "󰋜 ~"
 read_only_style = "#ff5555"
 read_only = "  "
 format = "at [$path]($style)[$read_only]($read_only_style) "
