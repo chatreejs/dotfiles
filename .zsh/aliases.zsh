@@ -30,5 +30,3 @@ alias g="goto"
 alias grep='grep --color'
 alias reload='source ~/.zshrc'
 
-source <(kubectl completion zsh)
-source <(ng completion script)
