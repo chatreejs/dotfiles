@@ -2,7 +2,7 @@
 
 Hi, there! 👋
 
-I'm Chatree.js, a 25 years old Senior GIS Application Developer from Thailand
+I'm Chatree.js, a 25 years old Senior Application Engineer from Thailand
 
 This repository **Dotfiles** contain my personal config files. Here you'll find configs, customizations, themes, and whatever I need to personalize my Linux and mac OS experience.
 
@@ -33,7 +33,7 @@ chmod +x ./install.sh
 Run my dotfiles in Linux container using following command
 
 ```bash
-docker run -it --rm chatreejs/dotfiles
+docker run -it --rm chatreejs/dotfiles:<TAG>
 ```
 
 #### Available tags
