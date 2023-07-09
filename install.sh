@@ -46,3 +46,5 @@ source ${PWD}/setup/common/05-setup-lunarvim.sh
 source ${PWD}/setup/common/06-symlink-config.sh
 
 printf "🎉  Done! all configuration is now installed.\n"
+
+printf "👉  Please restart your terminal.\n"

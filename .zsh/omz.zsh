@@ -77,6 +77,9 @@ plugins=(
     zsh-autosuggestions
     fast-syntax-highlighting
     zsh-better-npm-completion
+    docker
+    docker-compose
+    yarn
 )
 
 source $ZSH/oh-my-zsh.sh
