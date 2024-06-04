@@ -158,7 +158,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- Additional Plugins
 lvim.plugins = {
   -- Dracula color scheme.
-  { "dracula/vim", name = "dracula" },
+  { "dracula/vim",        name = "dracula" },
   { "folke/trouble.nvim", cmd = "TroubleToggle" },
 }
 
