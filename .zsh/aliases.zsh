@@ -24,9 +24,14 @@ function kc() {
 }
 
 # Alias command
-alias ls="exa --icons --group-directories-first"
-alias ll="exa --icons --group-directories-first -la"
+alias ls="lsd"
+alias l="ls -l"
+alias la="ls -a"
+alias ll="ls -la"
+alias lt="ls --tree"
+
+alias vim="lvim"
 alias g="goto"
 alias grep='grep --color'
 alias reload='source ~/.zshrc'
-
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'

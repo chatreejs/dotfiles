@@ -1,22 +1,65 @@
+tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
+tap "koekeishiya/formulae"
+tap "redpanda-data/tap"
 tap "teamookla/speedtest"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
-brew "exa"
+# Distributed revision control system
 brew "git"
+# Simple zero-configuration command-line HTTP server
+brew "http-server"
+# Modern load testing tool, using Go and JavaScript
+brew "k6"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Prints a steam locomotive if you type sl instead of ls
+brew "sl"
+# Cross-shell prompt for astronauts
 brew "starship"
+# User interface to the TELNET protocol
+brew "telnet"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Terminal multiplexer
 brew "tmux"
+# Vault
+brew "hashicorp/tap/vault"
+# Redpanda CLI & toolbox
+brew "redpanda-data/tap/redpanda"
+# Ookla Speedtest
 brew "teamookla/speedtest/speedtest"
+# Enable Windows-like alt-tab
 cask "alt-tab"
+# Eclipse-based LDAP browser and directory client
+cask "apache-directory-studio"
+# Voice and text chat software
 cask "discord"
-cask "firefox-developer-edition"
+# Superfamily of fonts for code
+cask "font-monaspace"
+# GIT client
 cask "fork"
+# Utility to hide menu bar items
+cask "hiddenbar"
+# Java IDE by JetBrains
 cask "intellij-idea"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Open-source keystroke visualiser
+cask "keycastr"
+# Calculator and converter application
+cask "numi"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Collaboration platform for API development
 cask "postman"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Screenshot measurement and annotation tool
 cask "shottr"
+# Tool to invert scroll direction for physical scroll wheels
+cask "unnaturalscrollwheels"
+# Code editor
 cask "visual-studio-code-insiders"

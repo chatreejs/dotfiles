@@ -13,4 +13,4 @@ else
   exit 1
 fi
 
-brew bundle dump --force --file=${PWD}/setup/macos/Brewfile
+brew bundle dump --cask --taps --brews --describe --force --file=${PWD}/setup/macos/Brewfile
