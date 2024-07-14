@@ -3,7 +3,7 @@
 setup_lunarvim() {
     if ! command -v nvim &> /dev/null
     then
-        echo "🚫  Neovim not found"
+        echo "🚫  $(tput setaf 5)Neovim not found$(tput sgr0)"
         echo "🚀  Installing Neovim"
         bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
     fi
@@ -21,12 +21,12 @@ setup_lunarvim() {
     # Cleanup installation script.
     rm /tmp/install-lunarvim.sh
 
-    echo "✨  LunarVim installed"
+    echo "✨  $(tput setaf 2)LunarVim installed$(tput sgr0)"
 }
 
 if [ ! -d "$HOME/.local/share/lunarvim" ]
 then
     setup_lunarvim
 else
-    echo "🌙  LunarVim is already installed (Skipping)"
+    echo "🌙  $(tput setaf 3)LunarVim is already installed (Skipping)$(tput sgr0)"
 fi

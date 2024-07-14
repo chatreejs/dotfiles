@@ -5,7 +5,8 @@ DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
 OS=$(uname -s)
 
 # Welcom message
-echo "😎  dotfiles installer v1.0.0 on $DISTRO"
+echo "$(tput bold)dotfiles installer v1.1.0$(tput sgr0)"
+echo "==> Installing configuration for $DISTRO"
 
 # Install essential packages Linux
 if [[ $OS == "Linux" ]]; then
@@ -45,6 +46,5 @@ source ${PWD}/setup/common/05-setup-lunarvim.sh
 # Symlink Config
 source ${PWD}/setup/common/06-symlink-config.sh
 
-printf "🎉  Done! all configuration is now installed.\n"
-
-printf "👉  Please restart your terminal.\n"
+echo "✨  Done! all configuration is now installed."
+echo "$(tput bold)Please restart your terminal to update configuration."

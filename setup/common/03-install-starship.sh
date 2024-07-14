@@ -4,7 +4,7 @@ if ! command -v starship &> /dev/null
 then
     echo "🚀  Installing Starship"
     curl -fsSL https://starship.rs/install.sh | sh -s -- -y
-    echo "✨  Starship installed"
+    echo "✨  $(tput setaf 2)Starship installed$(tput sgr0)"
 else
-    echo "✅  Starship is already installed (Skipping)"
+    echo "✅  $(tput setaf 3)Starship is already installed (Skipping)$(tput sgr0)"
 fi

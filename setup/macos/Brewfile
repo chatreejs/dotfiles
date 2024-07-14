@@ -1,5 +1,6 @@
 tap "hashicorp/tap"
 tap "homebrew/bundle"
+tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "redpanda-data/tap"
 tap "teamookla/speedtest"
@@ -13,6 +14,8 @@ brew "git"
 brew "http-server"
 # Modern load testing tool, using Go and JavaScript
 brew "k6"
+# Command-line tool to kill processes listening on a specific port
+brew "killport"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
 # Prints a steam locomotive if you type sl instead of ls
@@ -37,7 +40,6 @@ cask "alt-tab"
 cask "apache-directory-studio"
 # Voice and text chat software
 cask "discord"
-# Superfamily of fonts for code
 cask "font-monaspace"
 # GIT client
 cask "fork"
@@ -49,14 +51,14 @@ cask "intellij-idea"
 cask "iterm2"
 # Open-source keystroke visualiser
 cask "keycastr"
+# Window manager
+cask "loop"
 # Calculator and converter application
 cask "numi"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Collaboration platform for API development
 cask "postman"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # Tool to invert scroll direction for physical scroll wheels

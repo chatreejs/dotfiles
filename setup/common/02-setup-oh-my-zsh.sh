@@ -34,20 +34,20 @@ install_plugins() {
                 zsh-better-npm-completion)
                     git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion ;;
             esac
-            echo "✨  $plugin installed"
+            echo "✨  $(tput setaf 6)$plugin installed$(tput sgr0)"
         done
     else
-        echo "✅  All plugins already installed (Skipping)"
+        echo "✅  $(tput setaf 3)All plugins already installed (Skipping)$(tput sgr0)"
     fi
 }
 
 # Install Oh My Zsh
 if [ -d ~/.oh-my-zsh ]; then
-    echo "✅  Oh My Zsh is already installed (Skipping)"
+    echo "✅  $(tput setaf 3)Oh My Zsh is already installed (Skipping)$(tput sgr0)"
 else
     echo "🚀  Installing Oh My Zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    echo "✨  Oh My Zsh installed"
+    echo "✨  $(tput setaf 2)Oh My Zsh installed$(tput sgr0)"
 fi
 
 # Install Oh My Zsh plugins

@@ -5,7 +5,7 @@ setup_asdf() {
   then
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf
   else
-    echo "✅  asdf is already installed (Skipping)"
+    echo "✅  $(tput setaf 3)asdf is already installed (Skipping)$(tput sgr0)"
   fi
 
   # HACK: add asdf to PATH!
@@ -13,7 +13,7 @@ setup_asdf() {
 
   if ! command -v asdf
   then
-    echo "🚫  asdf binary is not found."
+    echo "🚫  $(tput setaf 1)asdf binary is not found.$(tput sgr0)"
     return
   fi
 
@@ -29,9 +29,9 @@ setup_asdf() {
 
 if command -v asdf &> /dev/null
 then
-  echo "✅  asdf is already installed (Skipping)"
+  echo "✅  $(tput setaf 3)asdf is already installed (Skipping)$(tput sgr0)"
 else
   echo "🚀  Installing asdf"
   setup_asdf
-  echo "✨  asdf installed"
+  echo "✨  $(tput setaf 2)asdf installed$(tput sgr0)"
 fi

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "🔧  Enabling Key Repeat"
+echo "🔧  $(tput setaf 6)Enabling Key Repeat$(tput sgr0)"
 defaults write -g ApplePressAndHoldEnabled -bool false

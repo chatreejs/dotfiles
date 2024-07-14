@@ -2,4 +2,4 @@
 
 echo "🍻  Installing Homebrew packages"
 brew bundle --file=${PWD}/setup/macos/Brewfile | sed 's/^/\t/'
-echo "✨  Homebrew packages installed"
+echo "✨  $(tput setaf 2)Homebrew packages installed$(tput sgr0)"
