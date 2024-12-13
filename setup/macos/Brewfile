@@ -2,7 +2,6 @@ tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
-tap "redpanda-data/tap"
 tap "teamookla/speedtest"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
@@ -60,8 +59,6 @@ brew "yq"
 brew "zellij"
 # Vault
 brew "hashicorp/tap/vault"
-# Redpanda CLI & toolbox
-brew "redpanda-data/tap/redpanda"
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest"
 # Enable Windows-like alt-tab
@@ -70,6 +67,7 @@ cask "alt-tab"
 cask "apache-directory-studio"
 # Voice and text chat software
 cask "discord"
+cask "font-fira-code-nerd-font"
 cask "font-monaspace"
 # GIT client
 cask "fork"
