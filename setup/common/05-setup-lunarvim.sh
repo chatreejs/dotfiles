@@ -5,7 +5,7 @@ setup_lunarvim() {
     then
         echo "🚫  $(tput setaf 5)Neovim not found$(tput sgr0)"
         echo "🚀  Installing Neovim"
-        bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
+        LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
     fi
     # Add asdf shims to path.
     export PATH="$PATH:$HOME/.asdf/shims:$HOME/.asdf/bin"
