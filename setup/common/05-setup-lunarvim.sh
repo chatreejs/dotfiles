@@ -1,11 +1,16 @@
 #!/bin/bash
 
+DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
+
 setup_lunarvim() {
     if ! command -v nvim &> /dev/null
     then
         echo "🚫  $(tput setaf 5)Neovim not found$(tput sgr0)"
         echo "🚀  Installing Neovim"
-        LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
+        if [[ $DISTRO == "macos" ]];
+        then
+            brew install neovim
+        fi
     fi
     # Add asdf shims to path.
     export PATH="$PATH:$HOME/.asdf/shims:$HOME/.asdf/bin"

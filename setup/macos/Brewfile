@@ -33,6 +33,8 @@ brew "kubectx"
 brew "lsd"
 # Fast, highly customisable system info script
 brew "neofetch"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Development kit for the Java programming language
 brew "openjdk@17"
 # 7-Zip (high compression file archiver) implementation
