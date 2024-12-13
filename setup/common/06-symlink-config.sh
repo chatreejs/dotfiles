@@ -30,7 +30,6 @@ linking_dotfiles() {
     fi
 }
 
-linking_dotfiles ".zshrc"
 linking_dotfiles ".zshenv"
 linking_dotfiles ".gitconfig"
 linking_dotfiles ".zsh"

@@ -1,4 +1,4 @@
-add_newline = true
+add_newline = false
 
 format = """$env_var $all"""
 
@@ -46,7 +46,7 @@ style = "bold #bd93f9"
 disabled = false
 
 [kubernetes]
-format = 'via [ﴱ $context\($namespace\)](bold purple) '
+format = 'via [󱃾 $context\($namespace\)](bold purple) '
 disabled = false
 
 [username]

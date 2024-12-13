@@ -30,7 +30,7 @@ alias la="ls -a"
 alias ll="ls -la"
 alias lt="ls --tree"
 
-alias vim="lvim"
+alias vi="lvim"
 alias g="goto"
 alias grep='grep --color'
 alias reload='source ~/.zshrc'
