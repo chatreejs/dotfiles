@@ -8,16 +8,36 @@ tap "teamookla/speedtest"
 brew "btop"
 # Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
+# GNU compiler collection
+brew "gcc"
 # Distributed revision control system
 brew "git"
-# Simple zero-configuration command-line HTTP server
-brew "http-server"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Modern load testing tool, using Go and JavaScript
 brew "k6"
 # Command-line tool to kill processes listening on a specific port
 brew "killport"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Development kit for the Java programming language
+brew "openjdk@17"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
 # Prints a steam locomotive if you type sl instead of ls
 brew "sl"
 # Cross-shell prompt for astronauts
@@ -28,6 +48,16 @@ brew "telnet"
 brew "thefuck"
 # Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Utilities to create and convert Web Open Font File (WOFF) files
+brew "woff2"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
 # Vault
 brew "hashicorp/tap/vault"
 # Redpanda CLI & toolbox
@@ -43,24 +73,28 @@ cask "discord"
 cask "font-monaspace"
 # GIT client
 cask "fork"
-# Utility to hide menu bar items
-cask "hiddenbar"
 # Java IDE by JetBrains
 cask "intellij-idea"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Menu bar manager
+cask "jordanbaird-ice"
 # Open-source keystroke visualiser
 cask "keycastr"
-# Window manager
-cask "loop"
+# Clipboard manager
+cask "maccy"
 # Calculator and converter application
 cask "numi"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Collaboration platform for API development
 cask "postman"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
 # Screenshot measurement and annotation tool
 cask "shottr"
+# Unpacks archive files
+cask "the-unarchiver"
 # Tool to invert scroll direction for physical scroll wheels
 cask "unnaturalscrollwheels"
 # Code editor
