@@ -1,15 +1,9 @@
 # find out which distribution we are running on
-LFILE="/etc/os-release"
-MFILE="/System/Library/CoreServices/SystemVersion.plist"
-if [[ -f $LFILE ]]; then
-  _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
-elif [[ -f $MFILE ]]; then
-  _distro="macos"
-fi
+DISTRO=$(source ${HOME}/.zsh/include.sh)
 
 # set an icon based on the distro
 # make sure your font is compatible with https://github.com/lukas-w/font-logos
-case $_distro in
+case $DISTRO in
     *kali*)                  ICON="";;
     *arch*)                  ICON="";;
     *debian*)                ICON="";;

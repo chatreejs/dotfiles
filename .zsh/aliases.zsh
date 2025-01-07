@@ -1,9 +1,5 @@
 DISTRO=$(source ${HOME}/.zsh/include.sh)
 
-# Alias for Kubernetes
-alias k="kubectl"
-alias h="helm"
-
 function kn() {
   namespace=$1
   if [ -z $namespace ]; then
@@ -34,14 +30,22 @@ function flushdns() {
   echo "DNS cache flushed"
 }
 
+function reload() {
+  source ~/.zshrc
+  echo "Zsh configuration reloaded"
+}
+
 # Alias command
 alias ls="lsd"
 alias l="ls -l"
 alias la="ls -a"
 alias ll="ls -la"
 alias lt="ls --tree"
-
 alias vi="lvim"
+alias vim="vim"
 alias g="goto"
 alias grep='grep --color'
-alias reload='source ~/.zshrc'
+
+# Alias for Kubernetes
+alias k="kubectl"
+alias h="helm"
