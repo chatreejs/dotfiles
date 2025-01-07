@@ -1,3 +1,5 @@
+DISTRO=$(source ${HOME}/.zsh/include.sh)
+
 # Alias for Kubernetes
 alias k="kubectl"
 alias h="helm"
@@ -23,6 +25,15 @@ function kc() {
   kubectl config use-context $context
 }
 
+function flushdns() {
+  if [[ $_distro == "macos" ]]; then
+    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+  elif [[ $_distro == "ubuntu" || $_distro == "debian" ]]; then
+    sudo systemd-resolve --flush-caches
+  fi
+  echo "DNS cache flushed"
+}
+
 # Alias command
 alias ls="lsd"
 alias l="ls -l"
@@ -34,4 +45,3 @@ alias vi="lvim"
 alias g="goto"
 alias grep='grep --color'
 alias reload='source ~/.zshrc'
-alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
