@@ -47,7 +47,7 @@ source ${PWD}/setup/common/05-setup-lunarvim.sh
 source ${PWD}/setup/common/06-symlink-config.sh
 
 # Add Zsh Config
-source ${PWD}/setup/common/07-add-zsh-config.sh
+source ${PWD}/setup/common/99-add-zsh-config.sh
 
 echo "✨  Done! all configuration is now installed."
 echo "$(tput bold)Please restart your terminal to update configuration."
