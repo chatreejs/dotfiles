@@ -20,7 +20,7 @@ setup_asdf() {
   echo "📦  Updating asdf to latest stable version"
   asdf update
 
-  for plugin in nodejs python dotnet
+  for plugin in nodejs python
   do
     echo -e "🔌  adding $plugin plugin"
     asdf plugin add $plugin
