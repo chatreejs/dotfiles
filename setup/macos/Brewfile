@@ -11,8 +11,6 @@ brew "docker-completion"
 brew "gcc"
 # Distributed revision control system
 brew "git"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
 # Validating, recursive, caching DNS resolver
@@ -29,14 +27,14 @@ brew "killport"
 brew "kubernetes-cli"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
-# Clone of ls with colorful output, file type icons, and more
-brew "lsd"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Development kit for the Java programming language
 brew "openjdk@17"
+# Development kit for the Java programming language
+brew "openjdk@21"
 # 7-Zip (high compression file archiver) implementation
 brew "p7zip"
 # Prints a steam locomotive if you type sl instead of ls
@@ -45,8 +43,6 @@ brew "sl"
 brew "starship"
 # User interface to the TELNET protocol
 brew "telnet"
-# Programmatically correct mistyped console commands
-brew "thefuck"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
@@ -71,6 +67,7 @@ cask "apache-directory-studio"
 cask "discord"
 cask "font-fira-code-nerd-font"
 cask "font-monaspace"
+cask "font-monocraft"
 # GIT client
 cask "fork"
 # Java IDE by JetBrains
