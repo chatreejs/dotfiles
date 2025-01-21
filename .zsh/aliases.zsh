@@ -31,18 +31,13 @@ function flushdns() {
 }
 
 function reload() {
+  echo "Reloading Zsh configuration..."
   source ~/.zshrc
   echo "Zsh configuration reloaded"
 }
 
 # Alias command
-alias ls="lsd"
-alias l="ls -l"
-alias la="ls -a"
-alias ll="ls -la"
-alias lt="ls --tree"
 alias vi="lvim"
-alias vim="vim"
 alias g="goto"
 alias grep='grep --color'
 
