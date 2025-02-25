@@ -2,8 +2,8 @@
 	name = Chatree.js
 	email = 36321701+chatreejs@users.noreply.github.com
 
-[includeIf "gitdir:~/Documents/Projects.SET/"]
-	path = ~/Documents/Projects.SET/.gitconfig
+[includeIf "gitdir:~/Documents/Projects/Work/"]
+	path = ~/Documents/Projects/Work/.gitconfig
 
 [gpg]
 	program = gpg
