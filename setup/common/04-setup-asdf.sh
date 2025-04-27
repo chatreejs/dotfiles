@@ -3,7 +3,7 @@
 setup_asdf() {
   if ! test -e ~/.asdf
   then
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+    git clone https://github.com/asdf-vm/asdf.git --branch v0.16.0 ~/.asdf
   else
     echo "✅  $(tput setaf 3)asdf is already installed (Skipping)$(tput sgr0)"
   fi
