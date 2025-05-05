@@ -37,8 +37,9 @@ function reload() {
 }
 
 # Alias command
+alias ll='ls -la'
+alias l='ls -l'
 alias vi="lvim"
-alias g="goto"
 alias grep='grep --color'
 
 # Alias for Kubernetes

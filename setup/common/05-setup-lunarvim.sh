@@ -7,9 +7,13 @@ setup_lunarvim() {
     then
         echo "🚫  $(tput setaf 5)Neovim not found$(tput sgr0)"
         echo "🚀  Installing Neovim"
-        if [[ $DISTRO == "macos" ]];
-        then
+        if [[ $DISTRO == "macos" ]]; then
             brew install neovim
+        elif [[ $DISTRO == "ubuntu" || $DISTRO == "debian" || $DISTRO == "linuxmint" ]]; then
+            sudo apt install neovim
+        else
+            echo "🚫  $(tput setaf 1)Unsupported distribution$(tput sgr0)"
+            return
         fi
     fi
     # Add asdf shims to path.

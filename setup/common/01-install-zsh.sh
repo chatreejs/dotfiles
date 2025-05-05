@@ -7,7 +7,7 @@ install() {
     if [[ $DISTRO == "macos" ]];
     then
         brew install zsh
-    elif [[ $DISTRO == "ubuntu" || $DISTRO == "debian" ]];
+    elif [[ $DISTRO == "ubuntu" || $DISTRO == "debian" || $DISTRO == "linuxmint" ]];
     then
         sudo apt install zsh -y
     elif [[ $DISTRO == "arch" ]];

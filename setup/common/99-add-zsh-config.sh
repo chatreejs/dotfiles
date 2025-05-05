@@ -10,6 +10,7 @@ add_line_if_not_exists() {
 
 temp_file=$(mktemp)
 {
+    echo 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"'
     echo '[[ -f ~/.zsh/omz.zsh ]] && source ~/.zsh/omz.zsh'
     echo '[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh'
     echo '[[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh'
