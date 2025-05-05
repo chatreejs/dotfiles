@@ -6,7 +6,7 @@ echo "📦  Installing essential packages"
 
 # Install Exa
 if [[ $DISTRO == "ubuntu" || $DISTRO == "debian" || $DISTRO == "linuxmint" ]]; then
-    sudo apt install build-essential -y
+    sudo apt install build-essential wget -y
 fi
 
 echo "✨  Done"

@@ -10,7 +10,7 @@ setup_lunarvim() {
         if [[ $DISTRO == "macos" ]]; then
             brew install neovim
         elif [[ $DISTRO == "ubuntu" || $DISTRO == "debian" || $DISTRO == "linuxmint" ]]; then
-            sudo apt install neovim
+            sudo apt install neovim -y
         else
             echo "🚫  $(tput setaf 1)Unsupported distribution$(tput sgr0)"
             return
