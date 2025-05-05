@@ -1,0 +1,28 @@
+FROM debian:bookworm
+
+ENV DOCKERIZED true
+ENV USER chatreejs
+ENV TIMEZONE "Asia/Bangkok"
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Setup timezone and install linux deps
+RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
+    && echo $TIMEZONE > /etc/timezone \
+    && apt update && apt install -y sudo curl git \
+    && apt clean
+
+# Create user and add to sudoers
+RUN useradd -m $USER \
+    && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Use user
+USER $USER
+ENV USER_HOME /home/$USER
+WORKDIR $USER_HOME
+
+# Copy dotfiles
+COPY . $USER_HOME/dotfiles
+RUN cd $USER_HOME/dotfiles \
+    && ./install.sh
+
+CMD ["/bin/zsh"]
