@@ -1,9 +1,6 @@
-# find out which distribution we are running on
-DISTRO=$(source ${HOME}/.zsh/include.sh)
-
 # set an icon based on the distro
 # make sure your font is compatible with https://github.com/lukas-w/font-logos
-case $DISTRO in
+case $_distro in
     *kali*)                  ICON="";;
     *arch*)                  ICON="";;
     *debian*)                ICON="";;

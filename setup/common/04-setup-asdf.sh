@@ -3,16 +3,13 @@
 setup_asdf() {
   if ! test -e ~/.asdf
   then
-    if [[ $DISTRO == "macos" ]];
-    then
-        wget https://github.com/asdf-vm/asdf/releases/download/v0.16.7/asdf-v0.16.7-darwin-amd64.tar.gz -O asdf.tar.gz
-    else
-        wget https://github.com/asdf-vm/asdf/releases/download/v0.16.7/asdf-v0.16.7-linux-amd64.tar.gz -O asdf.tar.gz
-    fi
+    wget https://github.com/asdf-vm/asdf/releases/download/v0.16.7/asdf-v0.16.7-linux-amd64.tar.gz -O asdf.tar.gz
+
     if [ $? -ne 0 ]; then
       echo "🚫  $(tput setaf 1)Failed to download asdf$(tput sgr0)"
       return
     fi
+    
     echo "📦  $(tput setaf 2)Installing asdf$(tput sgr0)"
     tar -xzvf asdf.tar.gz
     sudo mv asdf /usr/local/bin

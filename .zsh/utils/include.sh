@@ -8,5 +8,3 @@ if [[ -f $LFILE ]]; then
 elif [[ -f $MFILE ]]; then
   _distro="macos"
 fi
-
-echo $_distro
