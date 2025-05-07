@@ -10,22 +10,22 @@ echo "==> Installing configuration for $DISTRO"
 
 # Install essential packages Linux
 if [[ $OS == "Linux" ]]; then
-  source ${PWD}/setup/linux/01-install-essential.sh
+    source ${PWD}/setup/linux/01-install-essential.sh
 fi
 
 # Install Homebrew
 if [[ $DISTRO == "macos" ]]; then
-  source ${PWD}/setup/macos/01-install-homebrew.sh
+    source ${PWD}/setup/macos/01-install-homebrew.sh
 fi
 
 # Install Homebrew packages from Brewfile
 if [[ $DISTRO == "macos" ]]; then
- source ${PWD}/setup/macos/02-install-brewfile.sh
+    source ${PWD}/setup/macos/02-install-brewfile.sh
 fi
 
 # Enable Key Repeat
 if [[ $DISTRO == "macos" ]]; then
-  source ${PWD}/setup/macos/03-enable-key-repeat.sh
+    source ${PWD}/setup/macos/03-enable-key-repeat.sh
 fi
 
 # Install Zsh

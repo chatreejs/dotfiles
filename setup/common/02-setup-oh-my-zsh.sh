@@ -14,7 +14,7 @@ check_plugins() {
             plugins_to_install+=($plugin)
         fi
     done
-
+    
     echo "${plugins_to_install[@]}"
 }
 
@@ -26,13 +26,13 @@ install_plugins() {
             echo "🌏  Downloading plugin: $plugin"
             case $plugin in
                 zsh-autosuggestions)
-                    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ;;
+                git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ;;
                 fast-syntax-highlighting)
-                    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting ;;
+                git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting ;;
                 zsh-z)
-                    git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z ;;
+                git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z ;;
                 zsh-better-npm-completion)
-                    git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion ;;
+                git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion ;;
             esac
             echo "✨  $(tput setaf 6)$plugin installed$(tput sgr0)"
         done

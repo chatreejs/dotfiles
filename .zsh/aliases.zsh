@@ -3,9 +3,9 @@ source ${HOME}/.zsh/utils/kubernetes.sh
 source ${HOME}/.zsh/utils/network.sh
 
 function reload() {
-  echo "Reloading Zsh configuration..."
-  source ~/.zshrc
-  echo "Zsh configuration reloaded"
+    echo "Reloading Zsh configuration..."
+    source ~/.zshrc
+    echo "Zsh configuration reloaded"
 }
 
 # Alias command

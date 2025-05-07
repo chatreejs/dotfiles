@@ -16,18 +16,18 @@ setup_lunarvim() {
     fi
     # Add asdf shims to path.
     export PATH="$PATH:$HOME/.asdf/shims:$HOME/.asdf/bin"
-
+    
     # Fetch the LunarVim script.
     curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh > /tmp/install-lunarvim.sh
     chmod +x /tmp/install-lunarvim.sh
-
+    
     # Install LunarVim.
     echo "🚀  Installing LunarVim without dependencies."
     /tmp/install-lunarvim.sh --overwrite --no-install-dependencies
-
+    
     # Cleanup installation script.
     rm /tmp/install-lunarvim.sh
-
+    
     echo "✨  $(tput setaf 2)LunarVim installed$(tput sgr0)"
 }
 
