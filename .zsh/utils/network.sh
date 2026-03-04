@@ -8,3 +8,8 @@ function flushdns() {
     fi
     echo "DNS cache flushed"
 }
+
+function myip() {
+	local IP=$(curl -s https://ipinfo.io/ip)
+	echo "ipv4: $IP"
+}

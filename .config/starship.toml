@@ -1,56 +1,184 @@
-add_newline = false
+"$schema" = 'https://starship.rs/config-schema.json'
 
-format = """$env_var $all"""
+format = """
+[](red)\
+$os\
+$username\
+[](bg:peach fg:red)\
+$directory\
+[](bg:yellow fg:peach)\
+$git_branch\
+$git_status\
+[](fg:yellow bg:green)\
+$c\
+$golang\
+$nodejs\
+$java\
+$python\
+[](fg:green bg:sapphire)\
+$conda\
+[](fg:sapphire bg:blue)\
+$kubernetes\
+[](fg:blue bg:lavender)\
+$gcloud\
+[ ](fg:lavender)\
+$cmd_duration\
+$line_break\
+$character
+"""
 
-[character]
-success_symbol = "[➜](bold #50fa7b) "
-error_symbol = "[➜](bold #ff5555) "
+palette = 'catppuccin_frappe'
 
-[cmd_duration]
-style = "bold #f1fa8c"
-
-[container]
-disabled = true
-
-[directory]
-style = "bold #50fa7b"
-truncation_length = 3
-home_symbol = " ~"
-read_only_style = "#ff5555"
-read_only = "  "
-format = "at [$path]($style)[$read_only]($read_only_style) "
-
-[dotnet]
-format = "via [$symbol($version )(🎯 $tfm )]($style)"
-symbol = " "
-
-[env_var.STARSHIP_DISTRO]
-format = '[$env_value](white)'
-variable = "STARSHIP_DISTRO"
+[os]
 disabled = false
+style = "bg:red fg:crust"
 
-[git_branch]
-format = "on [$symbol$branch(:$remote_branch)]($style) "
-style = "bold #ff79c6"
-symbol = " "
-
-[git_status]
-style = "bold #ff5555"
-format = '([\[$all_status$ahead_behind\]]($style) )'
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-
-[hostname]
-style = "bold #bd93f9"
-disabled = false
-
-[kubernetes]
-format = 'via [󱃾 $context\($namespace\)](bold purple) '
-disabled = false
+[os.symbols]
+Windows = ""
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
 
 [username]
-format = "[$user]($style) "
-style_user = "bold #8be9fd"
-disabled = false
 show_always = true
+style_user = "bg:red fg:crust"
+style_root = "bg:red fg:crust"
+format = '[ $user]($style)'
+
+[directory]
+style = "bg:peach fg:crust"
+format = "[  $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:yellow"
+format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
+
+[git_status]
+style = "bg:yellow"
+format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[c]
+symbol = " "
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[java]
+symbol = " "
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[python]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
+
+[kubernetes]
+format = '[[ $symbol$context\($namespace\) ](fg:crust bg:blue)]($style)'
+disabled = false
+
+[gcloud]
+symbol = "󱇶 "
+format = '[[ $symbol$account(@$domain)(\($region\)) ](fg:crust bg:lavender)]($style)'
+disabled = false
+
+[conda]
+symbol = "  "
+style = "fg:crust bg:sapphire"
+format = '[$symbol$environment ]($style)'
+ignore_base = false
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:lavender"
+format = '[[  $time ](fg:crust bg:lavender)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
+vimcmd_replace_symbol = '[❮](bold fg:lavender)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+
+[cmd_duration]
+show_milliseconds = true
+format = " in $duration "
+style = "bg:lavender"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[palettes.dracula]
+background = "#282a36"
+current_line = "#6272a4"
+selection = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+red = "#ff5555"
+orange = "#ffb86c"
+yellow = "#f1fa8c"
+green = "#50fa7b"
+cyan = "#8be9fd"
+purple = "#bd93f9"
+pink = "#ff79c6"
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
