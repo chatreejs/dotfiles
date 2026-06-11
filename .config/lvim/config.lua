@@ -19,38 +19,38 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
-  -- for input mode
-  i = {
-    ["<C-j>"] = actions.move_selection_next,
-    ["<C-k>"] = actions.move_selection_previous,
-    ["<C-n>"] = actions.cycle_history_next,
-    ["<C-p>"] = actions.cycle_history_prev,
-  },
-  -- for normal mode
-  n = {
-    ["<C-j>"] = actions.move_selection_next,
-    ["<C-k>"] = actions.move_selection_previous,
-  },
+    -- for input mode
+    i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.cycle_history_next,
+        ["<C-p>"] = actions.cycle_history_prev,
+    },
+    -- for normal mode
+    n = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+    },
 }
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = {
-  name = "Projects",
+    name = "Projects",
 
-  p = { "<cmd>Telescope project<CR>", "Project" },
-  r = { "<cmd>Telescope projects<CR>", "Recent" },
+    p = { "<cmd>Telescope project<CR>", "Project" },
+    r = { "<cmd>Telescope projects<CR>", "Recent" },
 }
 
 lvim.builtin.which_key.mappings["t"] = {
-  name = "Diagnostics",
+    name = "Diagnostics",
 
-  t = { "<cmd>TroubleToggle<cr>", "Trouble" },
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+    t = { "<cmd>TroubleToggle<cr>", "Trouble" },
+    r = { "<cmd>Trouble lsp_references<cr>", "References" },
+    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+    d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
 -- TODO: User Config for predefined plugins
@@ -63,18 +63,18 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "java",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "yaml",
+    "bash",
+    "c",
+    "java",
+    "javascript",
+    "json",
+    "lua",
+    "python",
+    "typescript",
+    "tsx",
+    "css",
+    "rust",
+    "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -157,9 +157,9 @@ lvim.builtin.treesitter.indent.enable = false
 
 -- Additional Plugins
 lvim.plugins = {
-  -- Dracula color scheme.
-  { "dracula/vim",        name = "dracula" },
-  { "folke/trouble.nvim", cmd = "TroubleToggle" },
+    -- Dracula color scheme.
+    { "dracula/vim",        name = "dracula" },
+    { "folke/trouble.nvim", cmd = "TroubleToggle" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
