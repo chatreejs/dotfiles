@@ -2,7 +2,7 @@
 
 Hi, there! 👋
 
-I'm Chatree.js, a 25 years old Senior Application Engineer from Thailand
+I'm Chatree.js, a 28 years old Senior Application Engineer from Thailand
 
 This repository **Dotfiles** contain my personal config files. Here you'll find configs, customizations, themes, and whatever I need to personalize my Linux and mac OS experience.
 
