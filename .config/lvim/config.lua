@@ -161,6 +161,29 @@ lvim.plugins = {
     -- Dracula color scheme.
     { "dracula/vim",        name = "dracula" },
     { "folke/trouble.nvim", cmd = "TroubleToggle" },
+    -- GitHub Copilot inline (ghost text) suggestions.
+    -- Accept with <C-l> instead of <Tab> to avoid clashing with nvim-cmp.
+    -- Run :Copilot auth once to sign in (requires a Copilot subscription).
+    {
+        "zbirenbaum/copilot.lua",
+        event = "InsertEnter",
+        cmd = "Copilot",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    keymap = {
+                        accept = "<C-l>",
+                        next = "<C-]>",
+                        prev = "<C-[>",
+                        dismiss = "<C-e>",
+                    },
+                },
+                panel = { enabled = false },
+            })
+        end,
+    },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
