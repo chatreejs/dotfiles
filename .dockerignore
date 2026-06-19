@@ -1,1 +1,10 @@
+.git
+.gitignore
+.DS_Store
+**/.DS_Store
 Brewfile.lock.json
+docker-compose.yml
+Jenkinsfile
+README.md
+CLAUDE.md
+LICENSE

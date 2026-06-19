@@ -1,0 +1,58 @@
+# docker-compose.yml — test harness for the dotfiles installer.
+#
+# Both services build the SAME docker/Dockerfile; only BASE_IMAGE differs.
+# Each runs ./install.sh at build time, exactly like the Jenkins pipeline,
+# then keeps a container alive so you can exec in and poke at the result.
+#
+# Quick start (AI agent friendly):
+#   docker compose build                  # build both variants
+#   docker compose run --rm ubuntu        # interactive zsh in a fresh Ubuntu box
+#   docker compose run --rm debian        # same, Debian
+#
+# Non-interactive smoke test (good for CI / agents):
+#   docker compose run --rm ubuntu zsh -ic 'echo OK; which starship asdf lvim'
+#
+# Iterate on the installer WITHOUT rebuilding (mounts the repo live):
+#   docker compose run --rm ubuntu-dev    # source is bind-mounted at ~/dotfiles
+#   # then inside: cd ~/dotfiles && ./install.sh
+#
+# Tear down:
+#   docker compose down
+
+services:
+  ubuntu:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        BASE_IMAGE: ubuntu:22.04
+    image: chatreejs/dotfiles:ubuntu
+    # Keep stdin/tty so `docker compose run` drops you into an interactive zsh.
+    stdin_open: true
+    tty: true
+
+  debian:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        BASE_IMAGE: debian:12   # pinned (bookworm) for reproducible test builds
+    image: chatreejs/dotfiles:debian
+    stdin_open: true
+    tty: true
+
+  # Dev variants: reuse the built image but bind-mount the working tree so you
+  # can edit setup scripts on the host and re-run ./install.sh inside the
+  # container — no rebuild needed. Lives behind the `dev` profile so it does
+  # not start with a bare `docker compose up`.
+  ubuntu-dev:
+    extends: ubuntu
+    profiles: ["dev"]
+    volumes:
+      - .:/home/chatreejs/dotfiles
+
+  debian-dev:
+    extends: debian
+    profiles: ["dev"]
+    volumes:
+      - .:/home/chatreejs/dotfiles

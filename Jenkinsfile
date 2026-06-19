@@ -11,12 +11,12 @@ pipeline {
       parallel {
         stage('Build Ubuntu') {
           steps {
-            sh 'docker build -f docker/Dockerfile.ubuntu . -t $IMAGE_URL_UBUNTU'
+            sh 'docker build -f docker/Dockerfile --build-arg BASE_IMAGE=ubuntu:22.04 . -t $IMAGE_URL_UBUNTU'
           }
         }
         stage('Build Debian') {
           steps {
-            sh 'docker build -f docker/Dockerfile.debian . -t $IMAGE_URL_DEBIAN'
+            sh 'docker build -f docker/Dockerfile --build-arg BASE_IMAGE=debian:12 . -t $IMAGE_URL_DEBIAN'
           }
         }
       }
