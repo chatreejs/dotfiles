@@ -9,6 +9,7 @@ lvim.leader = "space"
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-b>"] = ":NvimTreeToggle<cr>"
 
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
