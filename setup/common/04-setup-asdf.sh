@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Pinned Node version for LunarVim LSP servers and Copilot (see CLAUDE.md).
+NODE_VERSION="22.17.1"
+
 setup_asdf() {
     if ! test -e ~/.asdf
     then
@@ -36,6 +39,14 @@ setup_asdf() {
         echo -e "🔌  adding $plugin plugin"
         asdf plugin add $plugin
     done
+
+    # Install and pin Node so LunarVim LSP servers and Copilot have a runtime.
+    # asdf 0.16+: `set -u` writes the version to ~/.tool-versions.
+    if ! asdf list nodejs 2>/dev/null | grep -q "$NODE_VERSION"; then
+        echo "📦  Installing Node.js $NODE_VERSION"
+        asdf install nodejs "$NODE_VERSION"
+    fi
+    asdf set -u nodejs "$NODE_VERSION"
 }
 
 if command -v asdf &> /dev/null
