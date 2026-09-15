@@ -15,7 +15,7 @@ alias vi="lvim"
 alias grep='grep --color'
 
 # Alias for Kubernetes
-alias k="kubectl"
+# `k` is defined as a function in utils/kubernetes.sh (pipes YAML output to yq)
 alias h="helm"
 
 # Utility
