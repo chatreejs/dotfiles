@@ -175,8 +175,11 @@ lvim.plugins = {
                     auto_trigger = true,
                     keymap = {
                         accept = "<C-l>",
-                        next = "<C-]>",
-                        prev = "<C-[>",
+                        -- Avoid <C-]> (tag jump) and especially <C-[> which is
+                        -- byte-identical to <Esc> — binding it breaks escaping
+                        -- insert mode, so you can never reach :q to exit.
+                        next = "<M-]>",
+                        prev = "<M-[>",
                         dismiss = "<C-e>",
                     },
                 },
