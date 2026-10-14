@@ -9,6 +9,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ENV DOCKERIZED=true
 ENV USER=${USERNAME}
+# tput needs a terminal type during the non-interactive build
+ENV TERM=xterm-256color
 
 # Setup timezone and install linux deps
 RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
@@ -29,6 +31,8 @@ WORKDIR ${USER_HOME}
 # Copy dotfiles and run the installer
 COPY --chown=${USERNAME}:${USERNAME} . ${USER_HOME}/dotfiles
 RUN cd ${USER_HOME}/dotfiles \
-    && ./install.sh
+    && ./install.sh \
+    && sudo apt-get clean \
+    && sudo rm -rf /var/lib/apt/lists/*
 
 CMD ["/bin/zsh"]
