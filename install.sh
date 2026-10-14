@@ -46,6 +46,9 @@ source ${PWD}/setup/common/05-setup-lunarvim.sh
 # Symlink Config
 source ${PWD}/setup/common/06-symlink-config.sh
 
+# Setup tmux plugins
+source ${PWD}/setup/common/07-setup-tmux.sh
+
 # Add Zsh Config
 source ${PWD}/setup/common/99-add-zsh-config.sh
 
