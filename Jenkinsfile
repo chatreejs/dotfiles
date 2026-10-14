@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build Debian') {
           steps {
-            sh 'docker build -f docker/Dockerfile --build-arg BASE_IMAGE=debian:12 . -t $IMAGE_URL_DEBIAN'
+            sh 'docker build -f docker/Dockerfile --build-arg BASE_IMAGE=debian:12-slim . -t $IMAGE_URL_DEBIAN'
           }
         }
       }

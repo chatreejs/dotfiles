@@ -36,7 +36,7 @@ services:
       context: .
       dockerfile: docker/Dockerfile
       args:
-        BASE_IMAGE: debian:12   # pinned (bookworm) for reproducible test builds
+        BASE_IMAGE: debian:12-slim   # pinned (bookworm), slim variant for minimum size
     image: chatreejs/dotfiles:debian
     stdin_open: true
     tty: true

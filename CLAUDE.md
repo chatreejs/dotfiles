@@ -10,7 +10,7 @@ Personal dotfiles for macOS and Linux (Ubuntu/Debian). The repository is a colle
 
 - `./install.sh` — full bootstrap. Detects the distro and runs the setup steps in order. Safe to re-run; every step skips work that is already done. Must be run from the repo root (scripts reference `$PWD`).
 - `./dump_brewfile.sh` — regenerate `setup/macos/Brewfile` from the currently installed Homebrew packages (macOS only). Run this after installing/removing a brew package to keep the Brewfile in sync.
-- `docker build -f docker/Dockerfile --build-arg BASE_IMAGE=ubuntu:22.04 . -t chatreejs/dotfiles:ubuntu` — build the containerized dotfiles image (the single `docker/Dockerfile` copies the repo in and runs `./install.sh`). Pass `--build-arg BASE_IMAGE=debian:12` for the Debian variant. The Jenkinsfile builds both in parallel and pushes to Docker Hub.
+- `docker build -f docker/Dockerfile --build-arg BASE_IMAGE=ubuntu:22.04 . -t chatreejs/dotfiles:ubuntu` — build the containerized dotfiles image (the single `docker/Dockerfile` copies the repo in and runs `./install.sh`). Pass `--build-arg BASE_IMAGE=debian:12-slim` for the Debian variant. The Jenkinsfile builds both in parallel and pushes to Docker Hub.
 - `docker compose build && docker compose run --rm ubuntu` (or `debian`) — test harness for the installer. `docker-compose.yml` builds both variants from the one Dockerfile via `BASE_IMAGE`; the `dev`-profile `ubuntu-dev`/`debian-dev` services bind-mount the repo so you can re-run `./install.sh` without rebuilding.
 
 There is no test suite, build step, or linter. `.editorconfig` defines formatting (4-space indent everywhere, **tab indent for `*.sh`**, LF, trailing-newline).
