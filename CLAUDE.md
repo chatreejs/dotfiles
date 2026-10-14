@@ -26,7 +26,7 @@ There is no test suite, build step, or linter. `.editorconfig` defines formattin
 - `setup/common/` — cross-platform: zsh, Oh My Zsh, Starship, asdf, LunarVim, then the two steps below.
 
 ### Two ways config reaches the shell
-1. **Symlinking** (`setup/common/06-symlink-config.sh`): the `linking_dotfiles` helper symlinks tracked files into `$HOME`. If a real file already exists at the target it is moved to `*.bak` first; an existing symlink is replaced. Symlinked: `.zshenv`, `.gitconfig`, `.zsh/` (whole dir), `.config/starship.toml`, `.config/lvim/config.lua`, `.config/tmux/tmux.conf`. **To add a new dotfile, add a `linking_dotfiles` line here.**
+1. **Symlinking** (`setup/common/06-symlink-config.sh`): the `linking_dotfiles` helper symlinks tracked files into `$HOME`. If a real file already exists at the target it is moved to `*.bak` first; an existing symlink is replaced. Symlinked: `.zshenv`, `.gitconfig`, `.zsh/` (whole dir), `.config/starship.toml`, `.config/lvim/config.lua`, `.config/tmux/tmux.conf`, and `.config/claude/statusline-command.sh` → `~/.claude/statusline-command.sh` (Claude Code status line). **To add a new dotfile, add a `linking_dotfiles` line here.**
 2. **Prepending to `.zshrc`** (`setup/common/99-add-zsh-config.sh`): Oh My Zsh generates `~/.zshrc`, so this step idempotently prepends lines that set the asdf shims PATH and `source` the `~/.zsh/*.zsh` files. New top-level zsh entrypoints must be added to this list to load.
 
 ### Zsh layer (`.zsh/`)
