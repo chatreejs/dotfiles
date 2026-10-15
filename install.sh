@@ -1,19 +1,22 @@
 #!/bin/bash
 
+# Output helpers used by every step
+source ${PWD}/setup/common/log.sh
+
 # Check Distro
 DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
 OS=$(uname -s)
 
-# Welcom message
-echo "$(tput bold)dotfiles installer v1.1.0$(tput sgr0)"
-echo "==> Installing configuration for $DISTRO"
+# Welcome message
+echo "${_bold}dotfiles installer v1.1.0${_reset}"
+echo "Installing configuration for ${_bold}$DISTRO${_reset}"
 
 # Load machine-specific settings (see .env.example)
 if [[ -f ${PWD}/.env ]]; then
     set -a
     source ${PWD}/.env
     set +a
-	echo "Loaded machine-specific settings from .env"
+    echo "Using machine-specific settings from .env"
 fi
 
 # Install essential packages Linux
@@ -65,5 +68,6 @@ source ${PWD}/setup/common/07-setup-tmux.sh
 # Add Zsh Config
 source ${PWD}/setup/common/99-add-zsh-config.sh
 
-echo "✨  Done! all configuration is now installed."
-echo "$(tput bold)Please restart your terminal to update configuration."
+echo
+echo "✨  ${_bold}Done! All configuration is now installed.${_reset}"
+echo "    Please restart your terminal to load the new configuration."

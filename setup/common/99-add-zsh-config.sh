@@ -1,6 +1,6 @@
-#!bin/bash
+#!/bin/bash
 
-echo "🔗  $(tput setaf 6)Setup zsh configuration$(tput sgr0)"
+log_step "📝  Zsh config"
 
 add_line_if_not_exists() {
     local line="$1"
@@ -21,7 +21,6 @@ cp ~/.zshrc ~/.zshrc.bak
 
 # Add lines to the top of .zshrc if they do not exist
 new_content=""
-echo $new_content
 while IFS= read -r line; do
     if ! grep -qxF "$line" ~/.zshrc; then
         new_content+="$line"$'\n'
@@ -30,6 +29,12 @@ done < "$temp_file"
 
 # Prepend the new content to the original .zshrc
 echo -e "$new_content$(cat ~/.zshrc.bak)" > ~/.zshrc
+
+if [[ -n "$new_content" ]]; then
+    log_done "Added dotfiles config to ~/.zshrc"
+else
+    log_ok "~/.zshrc already loads the dotfiles config"
+fi
 
 rm "$temp_file"
 rm ~/.zshrc.bak

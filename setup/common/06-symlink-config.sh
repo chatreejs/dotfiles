@@ -1,32 +1,24 @@
-#!bin/bash
+#!/bin/bash
 
-echo "🔗  $(tput setaf 6)Linking configuration files$(tput sgr0)"
+log_step "🔗  Config files"
 
+# linking_dotfiles <source> [target]: symlink $PWD/<source> to $HOME/<target> (default: same path).
+# A real file at the target is backed up to *.bak; an existing symlink is replaced.
 linking_dotfiles() {
-    if [ -n "$2" ]; then
-        if [ -L "$HOME/$2" ]
-        then
-            rm "$HOME/$2"
-            ln -s "$PWD/$1" "$HOME/$2"
-        elif [ -e "$HOME/$2" ]
-        then
-            mv "$HOME/$2" "$HOME/$2.bak"
-            ln -s "$PWD/$1" "$HOME/$2"
-        else
-            ln -s "$PWD/$1" "$HOME/$2"
-        fi
+    local source="$1"
+    local target="${2:-$1}"
+    if [ -L "$HOME/$target" ]
+    then
+        rm "$HOME/$target"
+    elif [ -e "$HOME/$target" ]
+    then
+        mv "$HOME/$target" "$HOME/$target.bak"
+        log_info "Backed up existing ~/$target to ~/$target.bak"
+    fi
+    if ln -s "$PWD/$source" "$HOME/$target" 2>/dev/null; then
+        log_done "Linked ~/$target"
     else
-        if [ -L "$HOME/$1" ]
-        then
-            rm "$HOME/$1"
-            ln -s "$PWD/$1" "$HOME/$1"
-        elif [ -e "$HOME/$1" ]
-        then
-            mv "$HOME/$1" "$HOME/$1.bak"
-            ln -s "$PWD/$1" "$HOME/$1"
-        else
-            ln -s "$PWD/$1" "$HOME/$1"
-        fi
+        log_error "Failed to link ~/$target"
     fi
 }
 

@@ -36,6 +36,6 @@ There is no test suite, build step, or linter. `.editorconfig` defines formattin
 - `utils/` — function libraries grouped by topic: `kubernetes.sh` (`kn` namespace switch, `kc` context switch), `network.sh`, `backupfile.sh`, `include.sh`.
 
 ### Conventions
-- Scripts are guarded to be idempotent (`command -v`, directory/symlink existence checks) and use emoji + `tput` color for status output.
+- Scripts are guarded to be idempotent (`command -v`, directory/symlink existence checks). Status output goes through the helpers in `setup/common/log.sh` (sourced first by `install.sh`): each step opens with `log_step "<emoji>  Name"`, then reports indented results with `log_info` / `log_done` / `log_ok` (already done) / `log_skip` / `log_error`, and wraps noisy non-interactive commands in `log_indent`. Don't `echo`/`tput` directly in step scripts.
 - Pin tool versions explicitly and bump them at the top of the owning script: `asdf` release + `NODE_VERSION` in `04-setup-asdf.sh`, and `LV_BRANCH` + `NVIM_VERSION` in `05-setup-lunarvim.sh`. `05` tracks LunarVim's Nightly (`master`) on purpose — there is no stable LunarVim release for Neovim 0.11, which `copilot.lua` requires — and installs a pinned Neovim from GitHub releases on Linux (apt ships 0.6/0.7, too old). On macOS the Brewfile installs `neovim` with `link: false`, so `05` adds `$(brew --prefix neovim)/bin` to PATH itself.
 - The `.editorconfig` declares `indent_style = tab` for `*.sh`, but every tracked script actually uses 4-space indent. Match the surrounding 4-space style when editing scripts.

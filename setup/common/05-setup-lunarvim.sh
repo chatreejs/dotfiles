@@ -28,19 +28,20 @@ install_neovim_linux() {
         x86_64 | amd64) arch="x86_64" ;;
         aarch64 | arm64) arch="arm64" ;;
         *)
-            echo "🚫  $(tput setaf 1)Unsupported architecture $(uname -m)$(tput sgr0)"
+            log_error "Unsupported architecture $(uname -m)"
             return 1
             ;;
     esac
     asset="nvim-linux-${arch}.tar.gz"
-    echo "🚀  Installing Neovim ${NVIM_VERSION} (${arch})"
+    log_info "Installing Neovim ${NVIM_VERSION} (${arch})"
     if ! curl -fsSL "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${asset}" -o /tmp/nvim.tar.gz; then
-        echo "🚫  $(tput setaf 1)Failed to download Neovim${NVIM_VERSION}$(tput sgr0)"
+        log_error "Failed to download Neovim ${NVIM_VERSION}"
         return 1
     fi
     sudo tar -C /opt -xzf /tmp/nvim.tar.gz
     sudo ln -sf "/opt/nvim-linux-${arch}/bin/nvim" /usr/local/bin/nvim
     rm -f /tmp/nvim.tar.gz
+    log_done "Neovim ${NVIM_VERSION} installed"
 }
 
 # Make sure a suitable Neovim is available before installing LunarVim.
@@ -53,18 +54,18 @@ ensure_neovim() {
     fi
 
     if nvim_version_ok; then
-        echo "✅  $(tput setaf 2)Neovim $(nvim --version | head -1 | awk '{print $2}') present$(tput sgr0)"
+        log_ok "Neovim $(nvim --version | head -1 | awk '{print $2}') is already installed"
         return 0
     fi
 
-    echo "🚫  $(tput setaf 5)Neovim missing or older than 0.${NVIM_MIN_MINOR}$(tput sgr0)"
+    log_info "Neovim is missing or older than 0.${NVIM_MIN_MINOR}"
     if [[ $DISTRO == "ubuntu" || $DISTRO == "debian" || $DISTRO == "linuxmint" ]]; then
         install_neovim_linux || return 1
     elif [[ $DISTRO == "macos" ]]; then
-        echo "🚫  $(tput setaf 1)Install or upgrade Neovim with 'brew install neovim'$(tput sgr0)"
+        log_error "Install or upgrade Neovim with 'brew install neovim'"
         return 1
     else
-        echo "🚫  $(tput setaf 1)Unsupported distribution$(tput sgr0)"
+        log_error "Unsupported distribution"
         return 1
     fi
     nvim_version_ok
@@ -72,7 +73,7 @@ ensure_neovim() {
 
 setup_lunarvim() {
     if ! ensure_neovim; then
-        echo "🚫  $(tput setaf 1)No suitable Neovim, skipping LunarVim$(tput sgr0)"
+        log_skip "No suitable Neovim, skipping LunarVim"
         return
     fi
 
@@ -80,14 +81,16 @@ setup_lunarvim() {
     export PATH="$PATH:$HOME/.asdf/shims:$HOME/.asdf/bin"
 
     # Install LunarVim from the pinned branch.
-    echo "🚀  Installing LunarVim (branch: ${LV_BRANCH}) without dependencies."
+    log_info "Installing LunarVim (branch: ${LV_BRANCH}) without dependencies"
     LV_BRANCH="${LV_BRANCH}" bash <(curl -s "https://raw.githubusercontent.com/lunarvim/lunarvim/${LV_BRANCH}/utils/installer/install.sh") --overwrite --no-install-dependencies
 
-    echo "✨  $(tput setaf 2)LunarVim installed$(tput sgr0)"
+    log_done "LunarVim installed"
 }
+
+log_step "🌙  LunarVim"
 
 if [ ! -d "$HOME/.local/share/lunarvim" ]; then
     setup_lunarvim
 else
-    echo "🌙  $(tput setaf 3)LunarVim is already installed (Skipping)$(tput sgr0)"
+    log_ok "LunarVim is already installed"
 fi

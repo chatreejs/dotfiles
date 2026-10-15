@@ -1,10 +1,12 @@
 #!/bin/bash
 
+log_step "⭐  Starship"
+
 if ! command -v starship &> /dev/null
 then
-    echo "🚀  Installing Starship"
-    curl -fsSL https://starship.rs/install.sh | sh -s -- -y
-    echo "✨  $(tput setaf 2)Starship installed$(tput sgr0)"
+    log_info "Installing Starship"
+    log_indent sh -c "curl -fsSL https://starship.rs/install.sh | sh -s -- -y"
+    log_done "Starship installed"
 else
-    echo "✅  $(tput setaf 3)Starship is already installed (Skipping)$(tput sgr0)"
+    log_ok "Starship is already installed"
 fi
