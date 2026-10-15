@@ -8,6 +8,14 @@ OS=$(uname -s)
 echo "$(tput bold)dotfiles installer v1.1.0$(tput sgr0)"
 echo "==> Installing configuration for $DISTRO"
 
+# Load machine-specific settings (see .env.example)
+if [[ -f ${PWD}/.env ]]; then
+    set -a
+    source ${PWD}/.env
+    set +a
+	echo "Loaded machine-specific settings from .env"
+fi
+
 # Install essential packages Linux
 if [[ $OS == "Linux" ]]; then
     source ${PWD}/setup/linux/01-install-essential.sh
@@ -26,6 +34,11 @@ fi
 # Enable Key Repeat
 if [[ $DISTRO == "macos" ]]; then
     source ${PWD}/setup/macos/03-enable-key-repeat.sh
+fi
+
+# Trust root CA in installed JDKs
+if [[ $DISTRO == "macos" ]]; then
+    source ${PWD}/setup/macos/05-trust-java-certs.sh
 fi
 
 # Install Zsh
