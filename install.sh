@@ -44,6 +44,11 @@ if [[ $DISTRO == "macos" ]]; then
     source ${PWD}/setup/macos/05-trust-java-certs.sh
 fi
 
+# Load iTerm2 preferences from the repo
+if [[ $DISTRO == "macos" ]]; then
+    source ${PWD}/setup/macos/06-setup-iterm2.sh
+fi
+
 # Install Zsh
 source ${PWD}/setup/common/01-install-zsh.sh
 

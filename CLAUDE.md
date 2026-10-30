@@ -10,6 +10,7 @@ Personal dotfiles for macOS and Linux (Ubuntu/Debian). The repository is a colle
 
 - `./install.sh` — full bootstrap. Detects the distro and runs the setup steps in order. Safe to re-run; every step skips work that is already done. Must be run from the repo root (scripts reference `$PWD`).
 - `./dump_brewfile.sh` — regenerate `setup/macos/Brewfile` from the currently installed Homebrew packages (macOS only). Run this after installing/removing a brew package to keep the Brewfile in sync.
+- `./dump_iterm2.sh` — export the current iTerm2 preferences to `.config/iterm2/com.googlecode.iterm2.plist` (macOS only), dropping machine-local keys (window frames, `NoSync*`, Sparkle `SU*`). `setup/macos/06-setup-iterm2.sh` points iTerm2 at that folder (`PrefsCustomFolder` + `LoadPrefsFromCustomFolder`), so run the dump after changing iTerm2 settings and commit the plist.
 - `docker build -f docker/Dockerfile --build-arg BASE_IMAGE=ubuntu:22.04 . -t chatreejs/dotfiles:ubuntu` — build the containerized dotfiles image (the single `docker/Dockerfile` copies the repo in and runs `./install.sh`). Pass `--build-arg BASE_IMAGE=debian:12-slim` for the Debian variant. The Jenkinsfile builds both in parallel and pushes to Docker Hub.
 - `docker compose build && docker compose run --rm ubuntu` (or `debian`) — test harness for the installer. `docker-compose.yml` builds both variants from the one Dockerfile via `BASE_IMAGE`; the `dev`-profile `ubuntu-dev`/`debian-dev` services bind-mount the repo so you can re-run `./install.sh` without rebuilding.
 
