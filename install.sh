@@ -3,6 +3,19 @@
 # Output helpers used by every step
 source ${PWD}/setup/common/log.sh
 
+# Parse options
+SKIP_BREW=false
+for arg in "$@"; do
+    case $arg in
+        --skip-brew) SKIP_BREW=true ;;
+        *)
+            echo "Unknown option: $arg"
+            echo "Usage: ./install.sh [--skip-brew]"
+            exit 1
+            ;;
+    esac
+done
+
 # Check Distro
 DISTRO=$(source ${PWD}/setup/common/00-check-distro.sh)
 OS=$(uname -s)
@@ -31,7 +44,12 @@ fi
 
 # Install Homebrew packages from Brewfile
 if [[ $DISTRO == "macos" ]]; then
-    source ${PWD}/setup/macos/02-install-brewfile.sh
+    if [[ $SKIP_BREW == true ]]; then
+        log_step "🍻  Homebrew packages"
+        log_skip "Skipped (--skip-brew)"
+    else
+        source ${PWD}/setup/macos/02-install-brewfile.sh
+    fi
 fi
 
 # Enable Key Repeat
