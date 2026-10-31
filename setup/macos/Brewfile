@@ -95,6 +95,7 @@ cask "claude-code"
 cask "copilot-cli"
 # Voice and text chat software
 cask "discord"
+cask "font-departure-mono-nerd-font"
 cask "font-monaspace"
 # GIT client
 cask "fork"
