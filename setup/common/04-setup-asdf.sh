@@ -4,7 +4,7 @@
 ASDF_VERSION="0.16.7"
 # Pinned Node version for LunarVim LSP servers and Copilot (see CLAUDE.md).
 NODE_VERSION="22.17.1"
-ASDF_PLUGINS="nodejs python bun"
+ASDF_PLUGINS="nodejs python bun uv"
 
 install_asdf() {
     local os arch
