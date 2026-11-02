@@ -34,7 +34,7 @@ There is no test suite, build step, or linter. `.editorconfig` defines formattin
 - `omz.zsh` — Oh My Zsh config: theme (`robbyrussell`) and plugin list (asdf, git, z, autosuggestions, fast-syntax-highlighting, etc.).
 - `aliases.zsh` — the aggregator: it `source`s the `utils/*.sh` files, then defines aliases (`k`→kubectl, `h`→helm, `vi`→lvim, …). New shell functions live in `utils/` and get pulled in here.
 - `zsh-completions.zsh` — completion setup.
-- `utils/` — function libraries grouped by topic: `kubernetes.sh` (`kn` namespace switch, `kc` context switch), `network.sh`, `backupfile.sh`, `include.sh`.
+- `utils/` — function libraries grouped by topic: `kubernetes.sh` (`kn` namespace switch, `kc` context switch), `network.sh`, `backupfile.sh` and `checkbattery.sh` (standalone scripts run via aliases), `include.sh`.
 
 ### Conventions
 - Scripts are guarded to be idempotent (`command -v`, directory/symlink existence checks). Status output goes through the helpers in `setup/common/log.sh` (sourced first by `install.sh`): each step opens with `log_step "<emoji>  Name"`, then reports indented results with `log_info` / `log_done` / `log_ok` (already done) / `log_skip` / `log_error`, and wraps noisy non-interactive commands in `log_indent`. Don't `echo`/`tput` directly in step scripts.

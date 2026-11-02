@@ -20,3 +20,4 @@ alias h="helm"
 
 # Utility
 alias backupfile="bash ${HOME}/.zsh/utils/backupfile.sh"
+alias checkbattery="bash ${HOME}/.zsh/utils/checkbattery.sh"
