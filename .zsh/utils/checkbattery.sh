@@ -26,17 +26,25 @@ check_macos() {
         exit 1
     fi
 
-    # Read a top-level key (anchored so nested BatteryData keys don't match)
+    # Read a top-level key. Matching on the first field skips nested BatteryData keys.
+    # ioreg starts each line with "|" tree characters, so strip them first.
     get_key() {
-        echo "$ioreg_out" | awk -v k="\"$1\"" '$1 == k && $2 == "=" { print $3; exit }'
+        echo "$ioreg_out" | sed 's/^[ |]*//' | awk -v k="\"$1\"" '$1 == k && $2 == "=" { print $3; exit }'
+    }
+
+    # Read a key from the nested BatteryData dict. Apple Silicon Macs report
+    # DesignCapacity and FullChargeCapacity only there.
+    get_data_key() {
+        echo "$ioreg_out" | grep '"BatteryData" =' | grep -o "\"$1\"=[0-9]*" | head -n 1 | cut -d= -f2
     }
 
     local design max current cycles temp source state condition
     design=$(get_key DesignCapacity)
+    [ -z "$design" ] && design=$(get_data_key DesignCapacity)
     max=$(get_key AppleRawMaxCapacity)
-    [ -z "$max" ] && max=$(get_key MaxCapacity)
+    [ -z "$max" ] && max=$(get_data_key FullChargeCapacity)
     current=$(get_key AppleRawCurrentCapacity)
-    [ -z "$current" ] && current=$(get_key CurrentCapacity)
+    [ -z "$current" ] && current=$(get_data_key RemainingCapacity)
     cycles=$(get_key CycleCount)
     temp=$(get_key Temperature)
     # Power source / charging state come from pmset (IOPowerSources), which
